@@ -24,8 +24,8 @@ class Boundary {
 }
 const boundaries = []
 const offset = {
-    x: 0,
-    y: 0
+    x: -680,
+    y: -2450
 }
 
 collisionsMap.forEach((row, i) => {
