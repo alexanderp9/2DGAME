@@ -86,23 +86,53 @@ header{
 .wrapper {
     position: fixed;
     width: 350px;
-    height: 420px;
+    height: 400px;
     background: transparent;
     border: 2px solid rgba(255,255,255,.5);
-    border-radius: 20px;
+    border-radius: 8px;
     backdrop-filter: blur(20px);
     box-shadow: 0 0 30px rgba(0,0,0,.5);
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    transform: scale(0);
+    transition: .4s ease, height .2s ease;
 }
 
-.wrapper .form-box{
+.wrapper.active-popup{
+    transform: scale(1);
+}
+
+.wrapper.active {
+    height: 480px;
+}
+
+.wrapper.form-box {
     width: 100%;
     padding: 40px;
 }
 
+.wrapper .form-box.login {
+    transition: transofrm .18s ease;
+    transform: translateX(0px);
+
+}
+.wrapper.active .form-box.login {
+    transition: none;
+    transform: translateX(-400px);
+
+}
+.wrapper .form-box.register {
+    position: absolute;
+    transition: none;
+    transform: translateX(400px);
+}
+.wrapper.active .form-box.register{
+    transition: transform .18s ease;
+    transform: translateX(0);
+
+}
 .wrapper .icon-close{
     position: absolute;
     top: 0;
@@ -114,7 +144,17 @@ header{
     color: white;
     display: flex;
     justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-bottom-left-radius: 20px;
+    z-index: 1;
 }
+
+.wrapper .icon-close:hover{
+   background: white;
+    color: #162938;
+}
+
 
 .form-box h2 {
     font-size: 2em;
@@ -173,11 +213,17 @@ header{
     font-weight: 500;
     margin: -15px 0 15px;
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+
+}
+
+.remember-forgot label{
+    margin-right: 10px;
 }
 .remember-forgot label input{
     accent-color: #162938;
     margin-right: 3px;
+
 }
 
 .remember-forgot a {
@@ -219,4 +265,5 @@ header{
 .login-register a:hover{
     text-decoration: underline;
 }
+
 
